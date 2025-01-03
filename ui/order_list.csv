@@ -1,0 +1,4 @@
+"Invoice ID","Invoice Date",Time,"Product Name",Quantity,price,"Total Due",Paid,Change,"Payment Type","VAT Sales","VAT amount",Dine/Out
+58,2024-12-26,17:41:55,"BEEF CHAO FAN",1,98,98,98,100,2,Cash,87.5,10.5,"Take Out"
+57,2024-12-26,17:40:25,"SWEET & SOUR FISH LAURIAT",1,243,243,419,500,81,Cash,374.11,44.89,"Take Out"
+57,2024-12-26,17:40:25,"BEEF TAPA",1,176,176,419,500,81,Cash,374.11,44.89,"Take Out"

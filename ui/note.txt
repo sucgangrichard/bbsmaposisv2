@@ -1,0 +1,56 @@
+Now, save back up for menu - Backup saved!
+Create a sample data for dashboard graph for tbl_invoice
+
+
+SELECT * FROM `tbl_invoice`
+
+invoice_id
+total_due
+change_amount
+paid
+payment_type
+vatable_sales
+vat_amount
+order_date
+table_number
+dine_in
+menu_category
+time_value
+
+Create atleast 30 values to fillup those data.
+Starting date january 1 to 31 for order_date. 
+Make a random table number
+
+Choose category for menu_category
+Noodles Soup (PRODUCT LIST: BEEF MAMI = Price: 193, BEEF WONTON MAMI = Price: 209, LARGE WONTON MAMI = Price: 143, PANCIT CANTON = Price: 83, PANCIT CANTON WITH FRIED CHICKEN = Price: 198, WONTON MAMI WITH ASADO SIOPAO = Price: 98)
+
+		
+Chao Fan (PRODUCT LIST: BEEF CHAO FAN = Price: 98, CHAO FAN WITH 1 PC FRIED CHICKEN = Price: 42 ,CHAO FAN WITH 2pc FRIED CHICKEN = Price: 231, CHAO FAN WITH CHIX & SAUCE = Price: 208, CHAO FAN WITH SWEET & SOUR CHICKEN = Price: 208, CRISPY WONTON CHAO FAN = Price: 120, CRISPY WONTON SPICY CHAO FAN = Price: 142, PORK CHAO FAN = Price: 55, PORK CHAO FAN FRIED CHICKEN = Price: 142, SIOMAI BEEF CHAO FAN = Price: 143, SIOMAI CHAO FAN = Price: 109, SIOMAI SPICY CHAO FAN = Price: 132, SPICY CHAO FAN = Price: 76)
+
+		
+Drinks(PRODUCT LIST: SPRITE = Price: 72, PINEAPPLE JUICE = Price: 72, PEPSI = Price: 72, MUG ROOTBEER = Price: 72, MOUNTAIN DEW = Price: 72, ICED TEA = Price: 72, COKE ZERO = Price: 72)
+		
+Siopao Dimsum (PRODUCT LIST: 2PC FRIED ASADO SIOPAO = Price: 83, 2PC SIOMAI = Price: 44, 3PC SIOPAO BOX = Price: 162, 4PC FRIED SIOPAO BOX = Price: 165, 4PC LUMPIANG SHANGHAI = Price: 72, 4PC SIOMAI = Price: 66, 6PC SPICY WONTON = Price: 77, 6PC CRISPY WONTON WITH SWEET CHILI = Price: 77, BOLA-BOLA SIOPAO SUPREME = Price: 77, CHUNKY ASADO SIOPAO = Price: 54, DIMSUM MIX PLATTER = Price: 243, FRIED PORK SIOMAI GROUP PLATTER = Price: 198, LUMPIANG SHANGHAI GROUP PLATTER = Price: 215, STEAMED PORK SIOMAI GROUP PLATTER = Price: 198)		
+
+Rice Meals (PRODUCT LIST: CHIX & SAUCE RICE MEAL = Price: 164, IMPERIAL CHICKEN CHOP WITH EGG FRIED RICE = Price: 98, IMPERIAL CHICKEN CHOP WITH WHITE RICE = Price: 83, LUMPIANG SHANGHAI RICE MEAL = Price: 83)
+		
+Lauriat Family (PRODUCT LIST: CHINESE STYLED FRIED CHICKEN LAURIAT = Price: 209, CHIX & SAUCE LAURIAT = Price: 237, SWEET & SOUR CHICKEN LAURIAT = Price: 237, SWEET & SOUR FISH LAURIAT = Price: 176, SWEET & SOUR PORK LAURIAT = Price: 131)
+		
+MilkSha	(PRODUCT LIST: BLACK TEA LATTE WITH PUDDING = Price: 132, HONEY PEARL BLACK TEA LATTE = Price: 132, LYCHEE FRUIT TEA WITH JELLY = Price: 109, MILKSHA PERFECT PAIR good for 2 = Price: 263)	
+
+BreakFast (PRODUCT LIST: BEEF TAPA = Price: 176, BREAKFAST BEEF CHAO FAN = Price: 131, BREAKFAST CRISPY WONTON BEEF CHAO FAN = Price: 187, BREAKFAST CRISPY WONTON CHAO FAN = Price: 153)
+		
+Sdish Dessert (PRODUCT LIST: 3PC BUCHI = Price: 86, ASIAN SPICY SAUCE = Price: 17, CHICHARAP = Price: 66, EXTRA EGG FRIED RICE = Price: 50, EXTRA PLAIN RICE = Price: 39, KANGKONG WITH CHINESE BAGOONG = Price: 77, NEW! 3PC ASSORTED BUCHI = Price: 97, STIR FRIED BOK CHOY = Price: 77, WONTON SOUP = Price: 55)
+
+Choose Dine In or Take out for dine_in
+
+The vat amount is 12%
+
+To get the value of vatable_sales.
+vat = 12
+vat = vat / 100 + 1;
+vatablesales = total_due / vat;
+
+
+ 
+
