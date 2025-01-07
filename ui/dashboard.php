@@ -228,7 +228,7 @@ while (strtotime($currentDate) <= strtotime($today)) {
             <!-- small box -->
             <div class="small-box bg-warning">
               <div class="inner">
-                <h3><?php echo $total_sales_today;?></h3>
+                <h3><?php echo number_format ($total_sales_today,2);?></h3>
 
                 <p>SALES TODAY(₱)</p>
               </div>

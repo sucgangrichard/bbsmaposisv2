@@ -1,1 +1,13 @@
-This figure illustrates the categorization of stock. It will be sorted and managed upon receipt. The administrator has the ability to add, edit, and delete categories.
+email_settings
+notification_log
+notification_settings
+tbl_category
+tbl_do_category
+tbl_invoice
+tbl_invoice_details
+tbl_menu_category
+tbl_mmenu
+tbl_product
+tbl_taxdis
+tbl_user
+time_records

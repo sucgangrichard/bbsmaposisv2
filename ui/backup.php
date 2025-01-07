@@ -20,36 +20,7 @@ if($_SESSION['username']==""  OR $_SESSION['role']=="User"){
 
 ?>
 
-<style>
-    #progressWrapper {
-        width: 100%;
-        background-color: #f3f3f3;
-        border: 1px solid #ccc;
-        margin-top: 20px;
-    }
-    #progressBar {
-        width: 0%;
-        height: 30px;
-        background-color: #4caf50;
-        text-align: center;
-        line-height: 30px;
-        color: white;
-    }
-    #progressWrapper2 {
-        width: 100%;
-        background-color: #f3f3f3;
-        border: 1px solid #ccc;
-        margin-top: 20px;
-    }
-    #progressBar2 {
-      width: 0%;
-        height: 30px;
-        background-color: #4caf50;
-        text-align: center;
-        line-height: 30px;
-        color: white;
-    }
-</style>
+
 
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -83,16 +54,15 @@ if($_SESSION['username']==""  OR $_SESSION['role']=="User"){
               <h5 class="m-0">BackUp Data</h5>
             </div>
             <div class="card-body">
-            <form id="backupForm">
-        <button type="button" onclick="startBackup()">Backup Now</button>
-      </form>
 
 
-      <div id="progressWrapper">
-        <div id="progressBar">0%</div>
-      </div>
-
-      <div id="backupStatus"></div>
+            <form id="backupForm" action="backup99.php" method="post">
+                <button type="submit" class="btn btn-primary">Download Backup</button>
+              </form>
+              
+              <div class="progress mt-3">
+                <div id="progressBar" class="progress-bar" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
+              </div>
 
       <hr>
 
@@ -134,90 +104,49 @@ include_once "footer.php";
 ?>
 
 <script>
-function startBackup() {
-    var xhr = new XMLHttpRequest();
-    xhr.open("POST", "backup_process.php", true);
-    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-
-    xhr.onreadystatechange = function() {
-        if (xhr.readyState === 4) {
-            if (xhr.status === 200) {
-                const response = JSON.parse(xhr.responseText);
-                document.getElementById('progressBar').innerText = response.progress + '%';
-                document.getElementById('progressBar').style.width = response.progress + '%';
-                document.getElementById('backupStatus').innerText = response.status;
-
-                if (response.completed) {
-                    swal.fire({
-                        title: 'Backup Completed',
-                        text: 'The backup saved at your C:\BackupData.',
-                        icon: 'success',
-                        confirmButtonText: 'OK'
-                    }).then(() => {
-                        location.reload(); // Refresh the page upon completion
-                    });
-                } else {
-                    // Continue polling for progress updates
-                    setTimeout(startBackup, 1000);
-                }
-            } else {
-                console.error('Error: ' + xhr.status);
-                swal.fire({
-                    title: 'Error',
-                    text: 'An error occurred: ' + xhr.status,
-                    icon: 'error',
-                    confirmButtonText: 'OK'
-                });
-                document.getElementById('backupStatus').innerText = 'Error: ' + xhr.status;
-            }
-        }
-    };  
-
-    xhr.onerror = function() {
-        console.error('Request failed');
-        swal.fire({
-            title: 'Request Failed',
-            text: 'The request failed. Please try again.',
-            icon: 'error',
-            confirmButtonText: 'OK'
-        });
-        document.getElementById('backupStatus').innerText = 'Request failed';
-    };
-
-    xhr.send("action=backup");
-}
-
-
-
-</script>
-
-<script>
-function startFormat() {
-    // Your existing backup function
-}
-
-document.getElementById('deleteForm').onsubmit = function(event) {
+document.getElementById('backupForm').addEventListener('submit', function(event) {
     event.preventDefault();
+    var progressBar = document.getElementById('progressBar');
+    var formData = new FormData(this);
+
     var xhr = new XMLHttpRequest();
-    xhr.open('POST', 'delete_data.php', true);
-    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    xhr.open('POST', 'backup99.php', true);
 
     xhr.upload.onprogress = function(event) {
         if (event.lengthComputable) {
             var percentComplete = (event.loaded / event.total) * 100;
-            document.getElementById('progressBar2').style.width = percentComplete + '%';
-            document.getElementById('progressBar2').innerHTML = Math.round(percentComplete) + '%';
+            progressBar.style.width = percentComplete + '%';
+            progressBar.setAttribute('aria-valuenow', percentComplete);
+            progressBar.innerHTML = Math.round(percentComplete) + '%';
         }
     };
 
     xhr.onload = function() {
-        if (xhr.status == 200) {
-            document.getElementById('deleteStatus').innerHTML = 'Data deleted successfully';
+        if (xhr.status === 200) {
+            progressBar.style.width = '100%';
+            progressBar.setAttribute('aria-valuenow', 100);
+            progressBar.innerHTML = '100%';
+            Swal.fire({
+                title: 'Backup Complete!',
+                text: 'Your backup has been successfully created.',
+                icon: 'success',
+                confirmButtonText: 'OK'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = 'backup99.php';
+                    // location.reload();
+                }
+            });
         } else {
-            document.getElementById('deleteStatus').innerHTML = 'Error deleting data';
+            Swal.fire({
+                title: 'Error!',
+                text: 'There was an error creating the backup.',
+                icon: 'error',
+                confirmButtonText: 'OK'
+            });
         }
     };
 
-    xhr.send(new FormData(document.getElementById('deleteForm')));
-};
+    xhr.send(formData);
+});
 </script>
