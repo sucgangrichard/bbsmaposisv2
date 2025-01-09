@@ -1,2 +1,9 @@
+Hi! This is my first project!
 
-I create a Barcode-Based Stock Management and POS System using AdminLTE for the admin dashboard interface. This system allows users to efficiently manage inventory, track stock levels, and process sales transactions. The barcode scanning feature ensures quick and accurate data entry, reducing human error and improving overall efficiency. The AdminLTE template provides a responsive and user-friendly interface, making it easy for administrators to monitor stock levels, generate reports, and manage user roles. Additionally, the system integrates with various hardware devices such as barcode scanners and receipt printers to streamline the point-of-sale process.
+I am creating this project for Chowking Muntinlupa Bayan, which will be the beneficiary of this system. This project includes multiple modules that provide functionalities for both the inventory system and the point-of-sale system.
+
+In the inventory system, a barcode scanner will be used. However, before utilizing the scanner, products or items must be registered in the system to ensure they are recognized.
+
+Additionally, I have added email and alarm notifications as features. Whenever the stock is low, or the quantity of an item decreases to less than 10, a notification will be triggered and sent via email.
+
+I also implemented an automatic page refresh for the dashboard section to ensure it stays updated.
